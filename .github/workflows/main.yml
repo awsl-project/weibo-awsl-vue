@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Docker Login
+      uses: docker/login-action@v1.8.0
+      with:
+        registry: registry.cn-beijing.aliyuncs.com
+        username: ${{ secrets.ALIYUN_REGISTRY_USERNAME }}
+        password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
+    - name: Build the Docker image
+      run: docker build . --file docker/dockerfile --tag registry.cn-beijing.aliyuncs.com/dreamhunter/awsl:vue
+    - name: Push the Docker image
+      run: docker push registry.cn-beijing.aliyuncs.com/dreamhunter/awsl:vue

@@ -101,7 +101,7 @@ export default {
   },
   methods: {
     async fetchData(limit, offset) {
-      let url = "/list?limit=" + limit + "&offset=" + offset;
+      let url = "/v2/list?limit=" + limit + "&offset=" + offset;
       if (this.uid) {
         url = url + "&uid=" + this.uid;
       }
@@ -128,12 +128,12 @@ export default {
         });
       }
       this.uid = "";
-      let res = await axios.get("/list_count");
+      let res = await axios.get("/v2/list_count");
       this.total = res.data;
       this.fetchData(40, 0);
     },
     async chaneUid() {
-      let url = "/list_count";
+      let url = "/v2//list_count";
       if (this.uid) {
         url = url + "?uid=" + this.uid;
       }
