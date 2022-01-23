@@ -23,6 +23,6 @@ jobs:
         username: ${{ secrets.ALIYUN_REGISTRY_USERNAME }}
         password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
     - name: Build the Docker image
-      run: docker build . --file docker/dockerfile --tag registry.cn-beijing.aliyuncs.com/dreamhunter/awsl:vue
+      run: docker build . --file docker/Dockerfile --tag registry.cn-beijing.aliyuncs.com/dreamhunter/awsl:vue
     - name: Push the Docker image
       run: docker push registry.cn-beijing.aliyuncs.com/dreamhunter/awsl:vue
