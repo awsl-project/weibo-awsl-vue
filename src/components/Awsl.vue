@@ -133,7 +133,7 @@ export default {
       this.fetchData(40, 0);
     },
     async chaneUid() {
-      let url = "/v2//list_count";
+      let url = "/v2/list_count";
       if (this.uid) {
         url = url + "?uid=" + this.uid;
       }
