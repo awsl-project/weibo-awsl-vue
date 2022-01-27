@@ -109,7 +109,7 @@ export default {
       let pic_infos = res.data.map((item) => {
         let pic_info = item.pic_info;
         return {
-          key: pic_info.pic_id,
+          key: item.pic_id,
           url: pic_info.large.url,
           srcList: [pic_info.mw2000.url],
           wb_url: item.wb_url,
