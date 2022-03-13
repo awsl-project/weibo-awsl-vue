@@ -34,6 +34,8 @@ jobs:
         password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
     - name: Rename VUE_APP_BASE_API
       run: echo "VUE_APP_BASE_API=http://awsl-py.dev.jcstaff.club" > .env.production
+    - name: Install and Build
+      run: yarn && yarn build
     - name: Build the Docker image
       run: docker build . --file docker/Dockerfile --tag dreamhunter2333.azurecr.io/awsl/awsl-front:v1
     - name: Push the Docker image
