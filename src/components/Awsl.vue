@@ -111,7 +111,7 @@ export default {
         return {
           key: item.pic_id,
           url: pic_info.large.url,
-          srcList: [pic_info.mw2000.url],
+          srcList: [pic_info.original.url],
           wb_url: item.wb_url,
         };
       });
